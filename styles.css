@@ -23,6 +23,10 @@
   --font-2xl: 4rem;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -261,7 +265,7 @@ nav ul li a:hover {
 
 .git-hub-container {
   background-color: var(--primary-green);
-  padding: 1rem;
+  padding: 2rem 1rem;
   color: var(--neutral-900);
   display: flex;
   flex-direction: column;
@@ -321,6 +325,13 @@ nav ul li a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.project-card a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-decoration: none;
 }
 
 .about-img-container img {
