@@ -47,7 +47,17 @@ main {
 
 section {
   width: 90%;
-  padding: 3rem 0rem;
+  margin: 2rem 0;
+  padding: 2rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+section:first-of-type {
+  margin-top: 10px;
 }
 
 h1 {
@@ -274,6 +284,7 @@ nav ul li a:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 }
 
@@ -322,6 +333,7 @@ nav ul li a:hover {
 
 .git-hub-container {
   background-color: var(--primary-green);
+  width: 90%;
   padding: 2rem 1rem;
   color: var(--neutral-900);
   display: flex;
@@ -333,8 +345,8 @@ nav ul li a:hover {
   border-radius: 1rem;
 }
 
-.git-hub-container:hover{
-    animation: float 0.5s ease-in
+.git-hub-container:hover {
+  animation: float 0.5s ease-in;
 }
 
 .title-container {
@@ -360,7 +372,7 @@ nav ul li a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -369,6 +381,7 @@ nav ul li a:hover {
   height: 200px;
   overflow: hidden;
   border-radius: 1rem;
+  transition: transform 0.5s ease-in-out;
 }
 
 .about-img-container {
@@ -437,6 +450,34 @@ nav ul li a:hover {
   justify-content: center;
   gap: 1.5rem;
 }
+
+
+.tech-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 1rem;
+    padding: 1rem;
+    overflow: hidden;
+    background-color: var(--neutral-800);
+    margin: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.tech-card:hover{
+    animation: float 0.5s forwards;
+    background-color: var(--accent-pink);
+}
+
+.card-image {
+    width: 100%;
+    height: 1005;
+    object-fit: cover;
+}
+
 
 .social-media {
   display: flex;
@@ -545,6 +586,10 @@ nav ul li a:hover {
     padding: 0;
   }
 
+  section:first-of-type {
+    margin-top: 100px;
+  }
+
   .achievement-card {
     width: calc(25% - 3rem);
   }
@@ -557,6 +602,9 @@ nav ul li a:hover {
     transform: scale(1.01);
   }
 
+  .git-hub-container {
+    width: 100%;
+  }
   .about-description {
     display: flex;
     flex-direction: column;
