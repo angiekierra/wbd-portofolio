@@ -24,7 +24,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -47,7 +47,7 @@ main {
 
 section {
   width: 90%;
-  padding: 4rem 0rem;
+  padding: 3rem 0rem;
 }
 
 h1 {
@@ -102,28 +102,31 @@ footer {
   background-color: var(--accent-pink);
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: var(--secondary-purple-500);
-  padding: 0.5rem 1rem;
-  border-radius: 4rem;
-  box-shadow: 0 4px 8px var(--purple-shadow);
-}
-
 header {
   display: flex;
-  justify-content: center;
-  padding: 2rem 0rem;
+  justify-content: end;
+  padding: 1rem 0rem;
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
-nav ul {
+nav {
+  position: absolute;
+  top: 2rem;
+  width: 100%;
+  height: 0px;
+  background-color: var(--neutral-900);
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.5s ease;
+}
+
+nav ul {
+  display: none;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
@@ -146,6 +149,57 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+.bouncy-text {
+  display: inline-block;
+  animation: float 2s infinite;
+}
+
+.achievement-card {
+  width: calc(25% - 3rem);
+}
+
+.experience-card {
+  width: calc(50% - 3rem);
+}
+
+.menu-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+}
+
+.menu-btn span {
+  width: 30px;
+  height: 2px;
+  background-color: var(--neutral-50);
+  border-radius: 2rem;
+  transform-origin: left;
+  transition: 0.5s ease;
+}
+
+.menu-btn input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+  appearance: none;
+}
+
+.menu-btn input:checked ~ .second-line {
+  opacity: 0;
+}
+.menu-btn input:checked ~ .first-line {
+  transform: rotate(45deg);
+}
+.menu-btn input:checked ~ .third-line {
+  transform: rotate(-45deg);
+}
+
 .green-btn {
   color: var(--neutral-900);
   background-color: var(--primary-green);
@@ -155,7 +209,7 @@ nav ul li a:hover {
   padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer transition;
-  transform: transform 0.3s ease;
+  transform: transform 0.4s ease;
 }
 
 .green-btn:hover {
@@ -241,6 +295,9 @@ nav ul li a:hover {
 }
 
 .interest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: linear-gradient(
     to right,
     var(--secondary-purple-300),
@@ -274,6 +331,10 @@ nav ul li a:hover {
   text-align: center;
   justify-content: center;
   border-radius: 1rem;
+}
+
+.git-hub-container:hover{
+    animation: float 0.5s ease-in
 }
 
 .title-container {
@@ -328,10 +389,10 @@ nav ul li a:hover {
 }
 
 .project-card a {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-decoration: none;
 }
 
 .about-img-container img {
@@ -383,7 +444,7 @@ nav ul li a:hover {
 }
 
 .social-media svg path {
-  transition: fill 0.3s ease-in-out; 
+  transition: fill 0.3s ease-in-out;
 }
 
 .social-media svg:hover path {
@@ -405,8 +466,33 @@ nav ul li a:hover {
   }
 }
 
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    background-color: var(--neutral-900);
+  }
+
+  header:has(input:checked) > nav {
+    height: 40vh;
+  }
+
+  header:has(input:checked) > nav ul {
+    display: flex;
+  }
+}
+
 @media (min-width: 768px) {
-  /* Styles for tablets and larger */
   h1 {
     font-size: var(--font-2xl);
     font-weight: var(--font-bold);
@@ -427,6 +513,36 @@ nav ul li a:hover {
 
   h5 {
     font-size: var(--font-sm);
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  header {
+    justify-content: center;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    background-color: var(--secondary-purple-500);
+    padding: 0.5rem 1rem;
+    border-radius: 4rem;
+    box-shadow: 0 4px 8px var(--purple-shadow);
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .achievement-card {
